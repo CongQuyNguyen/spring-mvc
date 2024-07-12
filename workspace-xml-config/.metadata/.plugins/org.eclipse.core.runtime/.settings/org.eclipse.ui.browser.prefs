@@ -1,0 +1,4 @@
+browser-choice=1
+browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="0">\r\n<system/>\r\n<external location\="C\:\\Program Files\\Internet Explorer\\iexplore.exe" name\="Internet Explorer"/>\r\n<external location\="C\:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" name\="Chrome"/>\r\n</web-browsers>
+eclipse.preferences.version=1
+internalWebBrowserHistory=http\://localhost\:8080/admin-page|*|http\://localhost\:8080/spring-mvc/admin-page|*|http\://localhost\:8080/spring-mvc/index.jsp|*|http\://localhost\:8080/spring-mvc/trang-chu|*|http\://localhost\:8080/spring-mvc/|*|http\://localhost\:8080/spring-mvc/trang-chu;jsessionid\=4215D3A3435DBF9E4FEC246A85D30DBD|*|http\://localhost\:8080/spring-mvc/trang-chu;jsessionid\=A456997647DBD6D4327E7712D699A6A1|*|http\://localhost\:8080/spring-mvc/trang-chu;jsessionid\=37C57937F46987F3BE6A7E70D8C7B955|*|
