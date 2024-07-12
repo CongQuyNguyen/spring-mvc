@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
@@ -22,7 +21,7 @@
 							<div class="dt-buttons btn-overlap btn-group">
 								<a flag="info"
 								   class="dt-button buttons-colvis btn btn-white btn-primary btn-bold btn-custom" data-toggle="tooltip"
-								   <%--Điều hướng đến trang edit--%>
+								<%--Điều hướng đến trang edit--%>
 								   title='Thêm bài viết' href='<c:url value="/admin/news/edit"/>'>
 									<i class="fa fa-plus-circle bigger-110 purple"></i>
 								</a>
@@ -72,11 +71,11 @@
 										<td>${ item.createdBy }</td>
 
 										<td>
-<%--											Sử dụng c:url và c:param để truyền tham số cho url
-											<c:url var="editURL" value="/admin-news">
-												<c:param name="type" value="edit"/>
-												<c:param name="id" value="${item.id}"/>
-											</c:url>--%>
+												<%--											Sử dụng c:url và c:param để truyền tham số cho url
+                                                                                            <c:url var="editURL" value="/admin-news">
+                                                                                                <c:param name="type" value="edit"/>
+                                                                                                <c:param name="id" value="${item.id}"/>
+                                                                                            </c:url>--%>
 											<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
 											   title="Cập nhật bài viết" href='#'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</a>

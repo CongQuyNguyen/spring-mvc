@@ -12,4 +12,10 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView("admin/home");
 		return mav;
 	}
+
+	@RequestMapping(value = "/admin/home-page-test", method = RequestMethod.GET)
+	public ModelAndView homePageTest() {
+		ModelAndView mav = new ModelAndView("admin/home");
+		return mav;
+	}
 }

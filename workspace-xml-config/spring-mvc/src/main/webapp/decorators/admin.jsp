@@ -9,6 +9,7 @@
     <title>
         <dec:title default="Dashboard - Ace Admin" />
     </title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
     <!-- Bootstrap và Font-Awesome CSS -->
     <link href="<c:url value='/template/admin/css/bootstrap.min.css' />" rel="stylesheet" />
@@ -36,6 +37,8 @@
 
     <%--CSS cho giao diện edit news--%>
     <link rel="stylesheet" href="<c:url value='/template/admin/news/css/edit-news.css' />" />
+
+
 
 </head>
 
