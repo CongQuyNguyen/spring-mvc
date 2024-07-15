@@ -42,10 +42,13 @@
                     <%--Để trong form với mục đích call API để sửa đổi hoặc thêm mới hoặc xoóa--%>
                     <form id="formSubmit">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right">Thể loại</label>
+                            <label class="col-sm-3 control-label no-padding-right" for="categoryCode">Thể loại</label>
                             <div class="col-sm-9">
                                 <select class="form-control" id="categoryCode" name="categoryCode">
-
+                                    <option selected="true">A</option>
+                                    <option>B</option>
+                                    <option>C</option>
+                                    <option>D</option>
                                 </select>
                             </div>
                         </div>
@@ -62,7 +65,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right">Hình đại diện</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="thumbnail" name="thumbnail" value="${model.thumbnail}"/>
+                                <input type="file" class="form-control" id="thumbnail" name="thumbnail" value="${model.thumbnail}"/>
                             </div>
                         </div>
                         <br/>
@@ -87,10 +90,10 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <c:if test="${not empty model.id}">
-                                    <input type="button" class="btn btn-white btn-warning btn-bold" value="Cập nhật bài viết" id="btnAddOrUpdateNew"/>
+                                    <input type="button" class="btn btn-info" value="Cập nhật bài viết" id="btnAddOrUpdateNew"/>
                                 </c:if>
                                 <c:if test="${empty model.id}">
-                                    <input type="button" class="btn btn-white btn-warning btn-bold" value="Thêm bài viết" id="btnAddOrUpdateNew"/>
+                                    <input type="button" class="btn btn-primary" value="Thêm bài viết" id="btnAddOrUpdateNew"/>
                                 </c:if>
                             </div>
                         </div>

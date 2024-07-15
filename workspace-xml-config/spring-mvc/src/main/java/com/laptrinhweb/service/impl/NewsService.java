@@ -1,4 +1,5 @@
 package com.laptrinhweb.service.impl;
+import com.laptrinhweb.converter.NewsConverter;
 import com.laptrinhweb.dto.NewsDTO;
 import com.laptrinhweb.entity.NewsEntity;
 import com.laptrinhweb.repository.NewRepository;
@@ -15,15 +16,15 @@ public class NewsService implements INewsService {
     @Autowired
     private NewRepository newRepository;
 
+    @Autowired
+    private NewsConverter newsConverter;
+
     @Override
     public List<NewsDTO> findAll(Pageable pageable) {
         List<NewsEntity> entities = newRepository.findAll(pageable).getContent();
         List<NewsDTO> models = new ArrayList<>();
         for(NewsEntity item : entities) {
-            NewsDTO news = new NewsDTO();
-            news.setTitle(item.getTitle());
-            news.setShortDescription(item.getShortDescription());
-            news.setCreatedBy(item.getCreatedBy());
+            NewsDTO news = newsConverter.toDTO(item);
             models.add(news);
         }
         return models;
@@ -32,5 +33,11 @@ public class NewsService implements INewsService {
     @Override
     public Integer getTotalItem() {
         return (int) newRepository.count();
+    }
+
+    @Override
+    public NewsDTO findById(long id) {
+        NewsEntity newsEntity = newRepository.findOne(id);
+        return newsConverter.toDTO(newsEntity);
     }
 }

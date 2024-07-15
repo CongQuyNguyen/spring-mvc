@@ -19,14 +19,20 @@
 					<div class="table-btn-controls">
 						<div class="pull-right tableTools-container">
 							<div class="dt-buttons btn-overlap btn-group">
+								<%--THêm bài viết--%>
+								<c:url var="createNewsURL" value="/admin/news/edit"/>
 								<a flag="info"
-								   class="dt-button buttons-colvis btn btn-white btn-primary btn-bold btn-custom" data-toggle="tooltip"
-								<%--Điều hướng đến trang edit--%>
-								   title='Thêm bài viết' href='<c:url value="/admin/news/edit"/>'>
+								   class="dt-button buttons-colvis btn btn-white btn-primary btn-bold btn-custom"
+								   data-toggle="tooltip"
+									<%--Điều hướng đến trang edit--%>
+								   title='Thêm bài viết' href='${createNewsURL}'>
 									<i class="fa fa-plus-circle bigger-110 purple"></i>
 								</a>
+								<%--Xóa bài viết--%>
 								<button id="btnDelete" type="button"
-										class="dt-button buttons-html5 btn btn-white btn-primary btn-bold btn-custom" data-toggle="tooltip" title='Xóa bài viết'>
+										class="dt-button buttons-html5 btn btn-white btn-primary btn-bold btn-custom"
+										data-toggle="tooltip"
+										title='Xóa bài viết'>
 									<i class="fa fa-trash-o bigger-110 pink"></i>
 								</button>
 							</div>
@@ -71,13 +77,13 @@
 										<td>${ item.createdBy }</td>
 
 										<td>
-												<%--											Sử dụng c:url và c:param để truyền tham số cho url
-                                                                                            <c:url var="editURL" value="/admin-news">
-                                                                                                <c:param name="type" value="edit"/>
-                                                                                                <c:param name="id" value="${item.id}"/>
-                                                                                            </c:url>--%>
+										<%--Sử dụng c:url và c:param để truyền tham số cho url--%>
+											<c:url var="updateNewsURL" value="/admin/news/edit">
+												<c:param name="id" value="${item.id}"/>
+											</c:url>
 											<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
-											   title="Cập nhật bài viết" href='#'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+											   title="Cập nhật bài viết" href='${updateNewsURL}' />'>
+												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</a>
 										</td>
 									</tr>

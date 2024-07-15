@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller(value = "newsControllerOfAdmin")
@@ -36,8 +33,15 @@ public class NewsController {
 		return mav;
 	}
 	@RequestMapping(value = "/admin/news/edit", method = RequestMethod.GET)
-	public ModelAndView editNews(@ModelAttribute("model") NewsDTO model) {
+	public ModelAndView editNews(@PathVariable(value = "id", required = false) Long id) {
 		ModelAndView mav = new ModelAndView("admin/news/edit");
+		NewsDTO model = new NewsDTO();
+		// Là cập nhật
+		if(id != null) {
+			model = newsService.findById(id);
+		} else {
+
+		}
 		mav.addObject("model", model);
 		return mav;
 	}

@@ -9,4 +9,6 @@ public interface INewsService {
     // Lấy toàn bộ các news
     List<NewsDTO> findAll(Pageable pageable);
     Integer getTotalItem();
+
+    NewsDTO findById(long id);
 }
