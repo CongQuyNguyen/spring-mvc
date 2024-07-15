@@ -1,6 +1,7 @@
 package com.laptrinhweb.controller.admin;
 
 import com.laptrinhweb.dto.NewsDTO;
+import com.laptrinhweb.service.ICategoryService;
 import com.laptrinhweb.service.INewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -14,6 +15,9 @@ public class NewsController {
 
 	@Autowired
 	private INewsService newsService;
+
+	@Autowired
+	private ICategoryService categoryService;
 	
 	@RequestMapping(value = "/admin/news/list", method = RequestMethod.GET)
 	public ModelAndView showNewsList(@RequestParam("page") int page, @RequestParam("limit") int limit) {
@@ -33,15 +37,15 @@ public class NewsController {
 		return mav;
 	}
 	@RequestMapping(value = "/admin/news/edit", method = RequestMethod.GET)
-	public ModelAndView editNews(@PathVariable(value = "id", required = false) Long id) {
+	public ModelAndView editNews(@RequestParam(value = "id", required = false) Long id) {
 		ModelAndView mav = new ModelAndView("admin/news/edit");
 		NewsDTO model = new NewsDTO();
 		// Là cập nhật
 		if(id != null) {
 			model = newsService.findById(id);
-		} else {
-
 		}
+		// Lấy danh sách category lên
+		mav.addObject("categories", categoryService.findAll());
 		mav.addObject("model", model);
 		return mav;
 	}

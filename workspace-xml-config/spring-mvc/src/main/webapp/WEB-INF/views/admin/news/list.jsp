@@ -74,16 +74,16 @@
 										</td>
 										<td>${ item.title }</td>
 										<td>${ item.shortDescription }</td>
-										<td>${ item.createdBy }</td>
+										<td>${ item.id }</td>
 
 										<td>
 										<%--Sử dụng c:url và c:param để truyền tham số cho url--%>
-											<c:url var="updateNewsURL" value="/admin/news/edit">
+											<c:url var="updateNewURL" value="/admin/news/edit">
 												<c:param name="id" value="${item.id}"/>
 											</c:url>
+
 											<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
-											   title="Cập nhật bài viết" href='${updateNewsURL}' />
-												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+											   title="Cập nhật bài viết" href='${updateNewURL}'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</a>
 										</td>
 									</tr>
