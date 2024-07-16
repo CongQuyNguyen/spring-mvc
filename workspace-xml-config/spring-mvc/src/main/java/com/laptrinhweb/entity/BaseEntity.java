@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
@@ -16,13 +17,13 @@ public abstract class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "created_date", columnDefinition = "date")
+    @Column(name = "created_date")
     @CreatedDate
-    private Timestamp createdDate;
+    private Date createdDate;
 
-    @Column(name = "modified_date", columnDefinition = "date")
+    @Column(name = "modified_date")
     @LastModifiedDate
-    private Timestamp modifiedDate;
+    private Date modifiedDate;
 
     @Column(name = "created_by")
     @CreatedBy
@@ -40,11 +41,11 @@ public abstract class BaseEntity {
         this.id = id;
     }
 
-    public Timestamp getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public Timestamp getModifiedDate() {
+    public Date getModifiedDate() {
         return modifiedDate;
     }
 

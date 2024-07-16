@@ -11,6 +11,7 @@
 
 <c:url var="newsURL" value="/admin/news/list"/>
 <c:url value="/api/news" var="apiURL"/>
+<c:url var="newsEdit" value="/admin/news/edit"/>
 
 <html>
 <head>
@@ -37,9 +38,9 @@
             <div class="row">
                 <div class="col-xs-12">
                     <%--Hiển thị alert--%>
-                    <c:if test="${not empty messageResponse}">
+                    <c:if test="${not empty message}">
                         <div class="alert alert-${alert}">
-                                ${messageResponse}
+                                ${message}
                         </div>
                     </c:if>
                     <%--Để trong form với mục đích call API để sửa đổi hoặc thêm mới hoặc xoóa--%>
@@ -144,10 +145,10 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = "${newsURL}?page=1&limit=2";
+                window.location.href = "${newsEdit}?id="+result.id+"&message=insert_success";
             },
             error: function (error) {
-                window.location.href = "${newsURL}?page=1&limit=2";
+                window.location.href = "${newsURL}?page=1&limit=2&message=error_system";
             }
         });
     }
@@ -160,12 +161,10 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                // window.location.href = "${newsURL}?type=edit&id=" + result.id + "&message=update_success";
-                window.location.href = "${newsURL}?page=1&limit=2";
+                window.location.href = "${newsEdit}?id="+result.id+"&message=update_success";
             },
             error: function (error) {
-                // window.location.href = "${newsURL}?type=list&maxPageItem=2&page=1&message=error_system";
-                window.location.href = "${newsURL}?page=1&limit=2";
+                window.location.href = "${newsEdit}?id=null&message=error_system";
             }
         });
     }

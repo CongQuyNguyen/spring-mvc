@@ -42,9 +42,9 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<%--Hiển thị alert--%>
-						<c:if test="${not empty messageResponse}">
+						<c:if test="${not empty message}">
 							<div class="alert alert-${alert}">
-									${messageResponse}
+									${message}
 							</div>
 						</c:if>
 						<div class="table-responsive">
@@ -93,16 +93,8 @@
 							<!-- Đây là cục để đưa ra các số trang, tuyệt đối phải có -->
 							<ul class="pagination" id="pagination"></ul>
 
-							<!-- 2 giá trị này sẽ truyền xuống cho server khi ng dùng click vào trang
-                            thông qua controller. maxPageItem là số item tối đa trên trang
-                            còn page là cái page khi ng dùng click -->
-							<!-- Khi tiến hành submit thì value sẽ có giá trị -->
-							<!-- offset là page chọn, limit là tổng số item trong 1 page. Sẽ được đưa
-                            vào server và truy vấn qua sql -->
 							<input type="hidden" value="" id="page" name="page">
 							<input type="hidden" value="" id="limit" name="limit">
-							<%--<input type="hidden" value="" id="sortName" name="sortName">
-							<input type="hidden" value="" id="sortBy" name="sortBy">--%>
 						</div>
 					</div>
 				</div>
@@ -125,8 +117,6 @@
 				if(currentPage != page) {
 					$('#limit').val(limit);
 					$('#page').val(page);
-					// $('#sortName').val('title');
-					// $('#sortBy').val('desc');
 
 					// Gọi ra form submit để load lại form và vào trang mới: Trỏ tới form ở trên
 					$('#form-submit').submit();
